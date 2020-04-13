@@ -12,7 +12,9 @@ def get_datas():
     return data_set
 
 def error_func(q, d, s):
-    result = np.kron(np.linalg.inv(q),d)
+    result = np.kron(np.linalg.inv(q), d)
+    result = np.kron(result, q) - s
+    return result
 
 def main():
     data_set = get_datas()
